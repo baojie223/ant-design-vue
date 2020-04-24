@@ -323,10 +323,11 @@ export default {
         onVisibleChange={this.onVisibleChange}
         getPopupContainer={getPopupContainer}
         forceRender
-      >
-        <template slot="overlay">{menus}</template>
-        {this.renderFilterIcon()}
-      </Dropdown>
+        scopedSlots={{
+          default: () => this.renderFilterIcon(),
+          overlay: () => <template>{menus}</template>,
+        }}
+      ></Dropdown>
     );
   },
 };
