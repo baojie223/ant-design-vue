@@ -1,6 +1,6 @@
 import PropTypes from '../_util/vue-types';
 import { getComponentFromProp, getOptionProps } from '../_util/props-util';
-import { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 import Icon from '../icon';
 import Breadcrumb from '../breadcrumb';
 import Avatar from '../avatar';
@@ -56,7 +56,12 @@ const renderTitle = (h, prefixCls, instance) => {
   const subTitle = getComponentFromProp(instance, 'subTitle');
   const tags = getComponentFromProp(instance, 'tags');
   const extra = getComponentFromProp(instance, 'extra');
-  const backIcon = getComponentFromProp(instance, 'backIcon') !== undefined ? getComponentFromProp(instance, 'backIcon') : <Icon type="arrow-left" />;
+  const backIcon =
+    getComponentFromProp(instance, 'backIcon') !== undefined ? (
+      getComponentFromProp(instance, 'backIcon')
+    ) : (
+      <Icon type="arrow-left" />
+    );
   const onBack = instance.$listeners.back;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {

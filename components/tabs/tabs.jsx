@@ -11,7 +11,7 @@ import {
 } from '../_util/props-util';
 import { cloneElement } from '../_util/vnode';
 import isValid from '../_util/isValid';
-import { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 import TabBar from './TabBar';
 
 export default {
@@ -49,7 +49,7 @@ export default {
   methods: {
     removeTab(targetKey, e) {
       e.stopPropagation();
-      if(isValid(targetKey)) {
+      if (isValid(targetKey)) {
         this.$emit('edit', targetKey, 'remove');
       }
     },

@@ -11,9 +11,9 @@ declare interface ValidationRule {
   trigger?: string;
   /**
    * validation error message
-   * @type string
+   * @type string | Function
    */
-  message?: string;
+  message?: string | (() => string)
 
   /**
    * built-in validation type, available options: https://github.com/yiminghe/async-validator#type
@@ -153,7 +153,7 @@ export declare class FormModel extends AntdComponent {
    * and an object containing all fields that fail the validation. Returns a promise if callback is omitted
    * @type Function
    */
-  validate: (callback?: (boolean: Boolean, object: Object) => void) => void | Promise<any>;
+  validate: (callback?: (boolean: boolean, object: Object) => void) => void | Promise<any>;
 
   /**
    * validate one or several form items

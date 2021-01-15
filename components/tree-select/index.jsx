@@ -9,7 +9,7 @@ import {
   filterEmpty,
   getListeners,
 } from '../_util/props-util';
-import { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 import Base from '../base';
 
 export { TreeData, TreeSelectProps } from './interface';
@@ -81,10 +81,10 @@ const TreeSelect = {
         let newLabel = typeof label === 'function' ? label(this.$createElement) : label;
         let newTitle = typeof title === 'function' ? title(this.$createElement) : title;
         if (!newLabel && scopedSlots.label && $scopedSlots[scopedSlots.label]) {
-          newLabel = $scopedSlots.label(item);
+          newLabel = $scopedSlots[scopedSlots.label](item);
         }
         if (!newTitle && scopedSlots.title && $scopedSlots[scopedSlots.title]) {
-          newTitle = $scopedSlots.title(item);
+          newTitle = $scopedSlots[scopedSlots.title](item);
         }
         const treeNodeProps = {
           ...item,

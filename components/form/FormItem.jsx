@@ -17,7 +17,7 @@ import getTransitionProps from '../_util/getTransitionProps';
 import BaseMixin from '../_util/BaseMixin';
 import { cloneElement, cloneVNodes } from '../_util/vnode';
 import Icon from '../icon';
-import { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 
 function noop() {}
 
@@ -312,7 +312,7 @@ export default {
       let classes = `${prefixCls}-item-control`;
       if (validateStatus) {
         classes = classNames(`${prefixCls}-item-control`, {
-          'has-feedback': props.hasFeedback || validateStatus === 'validating',
+          'has-feedback': validateStatus && props.hasFeedback,
           'has-success': validateStatus === 'success',
           'has-warning': validateStatus === 'warning',
           'has-error': validateStatus === 'error',

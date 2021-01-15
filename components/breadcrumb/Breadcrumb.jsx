@@ -2,7 +2,7 @@ import PropTypes from '../_util/vue-types';
 import { cloneElement } from '../_util/vnode';
 import { filterEmpty, getComponentFromProp, getSlotOptions } from '../_util/props-util';
 import warning from '../_util/warning';
-import { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 import BreadcrumbItem from './BreadcrumbItem';
 import Menu from '../menu';
 
@@ -93,7 +93,7 @@ export default {
           <BreadcrumbItem
             overlay={overlay}
             separator={separator}
-            key={route.breadcrumbName || path}
+            key={path || route.breadcrumbName}
           >
             {itemRender({ route, params, routes, paths, h: this.$createElement })}
           </BreadcrumbItem>
